@@ -24,7 +24,7 @@ public class Skin extends JFrame implements ActionListener {
 
 	private Skin() {
 
-		JButton button = new JButton("select");
+		JButton button = new JButton("select directory");
 		button.addActionListener(this);
 
 		JPanel buttonPanel = new JPanel();

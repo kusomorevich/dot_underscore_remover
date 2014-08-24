@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="dot_underscore_remover" default="deploy">
+
+	<property name="build" value="./build" />
+	<property name="name" value="dotUnderscoreRemover" />
+	<property name="jar.name" value="${name}.jar" />
+
+	<target name="build-main">
+		<javac fork="true" srcdir="./src" destdir="${build}" source="1.5" encoding="UTF-8" includeantruntime="false">
+		</javac>
+
+		<jar jarfile="${jar.name}">
+			<fileset dir="${build}">
+				<include name="**" />
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="dot.underscore.Skin"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="prepare.build">
+		<delete dir="${jar.name}" />
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="deploy" depends="prepare.build,build-main">
+		<delete dir="${build}" />
+	</target>
+
+</project>
